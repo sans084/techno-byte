@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "SafeBrowse Extension",
+  "version": "1.0",
+  "description": "Detects abusive content and gives users the option to report.",
+  "permissions": [
+    "scripting",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://your-nodal-agency-server.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
